@@ -1,0 +1,5 @@
+void ars.prime(){
+    ars.out("Hello ARSLang")
+    ars.out("Line 1\nLine 2")
+    ars.out("I'm \"Amit\"")
+}
