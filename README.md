@@ -2,7 +2,7 @@
 
 # 🔷 ARSLang
 
-**A beginner-friendly custom interpreted programming language — built with Python.**
+**A beginner-friendly, custom interpreted programming language — built with Python.**
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/ars2k03/ARSLang)
 [![Language](https://img.shields.io/badge/built%20with-Python-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -28,6 +28,7 @@
   - [Windows Setup](#-windows-setup)
   - [Linux Setup](#-linux-setup)
   - [macOS Setup](#-macos-setup)
+- [Windows PATH Fix](#️-windows-path-fix-if-ars-is-not-recognized)
 - [VS Code Extension](#-vs-code-extension)
 - [Getting Started](#-getting-started)
 - [Syntax Guide](#-syntax-guide)
@@ -51,8 +52,8 @@ ARSLang includes:
 - Custom `.ars` file format
 - Dedicated `ars` command-line tool
 - Built-in interpreter
-- Windows installer
 - Linux/macOS installer
+- Native Windows installer
 - VS Code extension
 - Syntax highlighting
 - Smart autocomplete
@@ -80,7 +81,7 @@ void ars.prime(){
 - ✅ Multi-line comments
 - ✅ Syntax validation
 - ✅ Dedicated CLI tool
-- ✅ Windows installer
+- ✅ Native Windows installer
 - ✅ Linux/macOS installer
 - ✅ VS Code extension
 - ✅ Smart autocomplete
@@ -94,25 +95,25 @@ void ars.prime(){
 
 # 📋 Requirements
 
-ARSLang needs only these tools:
+ARSLang needs:
 
 - Python `3.6` or higher
-- Git, optional but recommended
-- VS Code, optional but recommended
+- Git, if you want to clone the repository
+- Windows, Linux, or macOS
 
-Check Python:
+Check Python version:
 
 ```bash
 python --version
 ```
 
-If that does not work, try:
+On some Linux/macOS systems:
 
 ```bash
 python3 --version
 ```
 
-Check Git:
+Check Git version:
 
 ```bash
 git --version
@@ -124,7 +125,7 @@ If Git is not installed, follow the setup guide below for your operating system.
 
 # 🚀 Beginner Setup Guide
 
-This section starts from zero. Follow the guide for your operating system.
+This section is for beginners who are installing ARSLang from zero.
 
 ---
 
@@ -132,17 +133,18 @@ This section starts from zero. Follow the guide for your operating system.
 
 ### Step 1 — Install Python
 
-1. Go to the official Python website: https://www.python.org/downloads/
+1. Go to the official Python website:
+
+   👉 https://www.python.org/downloads/
+
 2. Download Python for Windows.
-3. Run the installer.
-4. Important: select this checkbox before installing:
+3. During installation, make sure you check:
 
 ```txt
 Add Python to PATH
 ```
 
-5. Finish installation.
-6. Close and reopen Command Prompt or PowerShell.
+4. Finish the installation.
 
 Verify Python:
 
@@ -156,25 +158,27 @@ Expected example:
 Python 3.12.x
 ```
 
-If `python` is not recognized, reinstall Python and make sure `Add Python to PATH` is selected.
-
 ---
 
 ### Step 2 — Install Git
 
-Git is required if you want to use `git clone`.
+If this command does not work:
 
-1. Go to: https://git-scm.com/download/win
-2. Download Git for Windows.
-3. Run the installer.
-4. During installation, choose this option:
+```powershell
+git --version
+```
+
+Install Git from:
+
+👉 https://git-scm.com/download/win
+
+During installation, keep the default options. Make sure this option is selected:
 
 ```txt
 Git from the command line and also from 3rd-party software
 ```
 
-5. Finish installation.
-6. Close and reopen PowerShell.
+After installation, close PowerShell and open it again.
 
 Verify Git:
 
@@ -182,43 +186,34 @@ Verify Git:
 git --version
 ```
 
-Expected example:
-
-```txt
-git version 2.x.x
-```
-
 ---
 
-### Step 3 — Download ARSLang
-
-Recommended method:
+### Step 3 — Clone ARSLang
 
 ```powershell
 git clone https://github.com/ars2k03/ARSLang.git
 cd ARSLang
 ```
 
-If Git is not installed, use ZIP download instead:
+If Git is not installed and you do not want to install it, you can download the project manually:
 
-1. Open the repository: https://github.com/ars2k03/ARSLang
+1. Open the GitHub repository.
 2. Click **Code**.
 3. Click **Download ZIP**.
 4. Extract the ZIP file.
-5. Open the extracted `ARSLang` folder.
-6. Open PowerShell inside that folder.
+5. Open the extracted folder in PowerShell.
 
 ---
 
 ### Step 4 — Install ARSLang on Windows
 
-Run:
+Inside the ARSLang folder, run:
 
 ```powershell
 python install_windows.py
 ```
 
-After installation, close and reopen PowerShell.
+After installation, close PowerShell and open it again.
 
 Verify:
 
@@ -234,21 +229,91 @@ ARSLang v0.1.0
 
 ---
 
-### Step 5 — Run your first ARSLang file
 
-Create a new file:
+# ⚠️ Windows PATH Fix If `ars` Is Not Recognized
 
-```powershell
-ars new hello.ars
+Sometimes Windows may install ARSLang successfully but fail to add it to PATH automatically.
+
+You may see:
+
+```txt
+'ars' is not recognized as an internal or external command
 ```
 
-Run it:
+or:
+
+```txt
+Failed to update PATH automatically
+```
+
+If this happens, manually add this folder to your Windows User PATH:
+
+```txt
+%USERPROFILE%\.arslang\bin
+```
+
+## Manual PATH Steps
+
+1. Open Windows Search.
+2. Search:
+
+```txt
+Environment Variables
+```
+
+3. Open:
+
+```txt
+Edit the system environment variables
+```
+
+4. Click:
+
+```txt
+Environment Variables
+```
+
+5. Under **User variables**, select:
+
+```txt
+Path
+```
+
+6. Click:
+
+```txt
+Edit
+```
+
+7. Click:
+
+```txt
+New
+```
+
+8. Add:
+
+```txt
+%USERPROFILE%\.arslang\bin
+```
+
+Example full path:
+
+```txt
+C:\Users\YourName\.arslang\bin
+```
+
+9. Click **OK** on all windows.
+10. Restart PowerShell or Command Prompt.
+
+Verify:
 
 ```powershell
-ars run hello.ars
+ars version
 ```
 
 ---
+
 
 ## 🐧 Linux Setup
 
@@ -258,19 +323,19 @@ For Ubuntu/Debian:
 
 ```bash
 sudo apt update
-sudo apt install python3 python3-pip git -y
+sudo apt install python3 git -y
 ```
 
 For Fedora:
 
 ```bash
-sudo dnf install python3 python3-pip git -y
+sudo dnf install python3 git -y
 ```
 
 For Arch Linux:
 
 ```bash
-sudo pacman -S python python-pip git
+sudo pacman -S python git
 ```
 
 Verify:
@@ -282,14 +347,12 @@ git --version
 
 ---
 
-### Step 2 — Download ARSLang
+### Step 2 — Clone ARSLang
 
 ```bash
 git clone https://github.com/ars2k03/ARSLang.git
 cd ARSLang
 ```
-
-If Git is not installed, download the ZIP from GitHub and extract it.
 
 ---
 
@@ -297,11 +360,6 @@ If Git is not installed, download the ZIP from GitHub and extract it.
 
 ```bash
 python3 install.py
-```
-
-Reload your terminal configuration:
-
-```bash
 source ~/.bashrc
 ```
 
@@ -325,75 +383,62 @@ ARSLang v0.1.0
 
 ---
 
-### Step 4 — Run your first ARSLang file
-
-```bash
-ars new hello.ars
-ars run hello.ars
-```
-
----
-
 ## 🍎 macOS Setup
 
-### Step 1 — Install Homebrew, if needed
+### Step 1 — Install Python and Git
 
-Check if Homebrew exists:
+macOS usually includes Git or asks you to install Command Line Tools automatically.
+
+Check Git:
 
 ```bash
-brew --version
+git --version
 ```
 
-If it is not installed, install it from:
+If Git is missing, install Apple Command Line Tools:
 
-```txt
-https://brew.sh
+```bash
+xcode-select --install
 ```
 
----
+Check Python:
 
-### Step 2 — Install Python and Git
+```bash
+python3 --version
+```
+
+If Python is missing, install it from:
+
+👉 https://www.python.org/downloads/macos/
+
+Or install using Homebrew:
 
 ```bash
 brew install python git
 ```
 
-Verify:
-
-```bash
-python3 --version
-git --version
-```
-
 ---
 
-### Step 3 — Download ARSLang
+### Step 2 — Clone ARSLang
 
 ```bash
 git clone https://github.com/ars2k03/ARSLang.git
 cd ARSLang
 ```
 
-If Git is not installed, download the ZIP from GitHub and extract it.
-
 ---
 
-### Step 4 — Install ARSLang on macOS
+### Step 3 — Install ARSLang on macOS
 
 ```bash
 python3 install.py
+source ~/.bashrc
 ```
 
-Reload your terminal configuration:
+If you use Zsh, which is the default shell on newer macOS versions:
 
 ```bash
 source ~/.zshrc
-```
-
-If you use Bash:
-
-```bash
-source ~/.bashrc
 ```
 
 Verify:
@@ -406,15 +451,6 @@ Expected output:
 
 ```txt
 ARSLang v0.1.0
-```
-
----
-
-### Step 5 — Run your first ARSLang file
-
-```bash
-ars new hello.ars
-ars run hello.ars
 ```
 
 ---
@@ -686,27 +722,24 @@ ARSLang/
 
 ---
 
-# 🛠 Troubleshooting
+# 🛠️ Troubleshooting
 
-## `git` is not recognized on Windows
+## Problem: `git` is not recognized
 
-Problem:
+You may see:
 
 ```txt
-git is not recognized as a name of a cmdlet, function, script file, or executable program
+'git' is not recognized as an internal or external command
 ```
 
 Fix:
 
-1. Install Git from: https://git-scm.com/download/win
-2. During setup, choose:
+1. Install Git from:
 
-```txt
-Git from the command line and also from 3rd-party software
-```
+   👉 https://git-scm.com/download/win
 
-3. Close and reopen PowerShell.
-4. Run:
+2. Restart PowerShell or Command Prompt.
+3. Run:
 
 ```powershell
 git --version
@@ -714,18 +747,27 @@ git --version
 
 ---
 
-## `python` is not recognized on Windows
+## Problem: `python` is not recognized
+
+You may see:
+
+```txt
+'python' is not recognized as an internal or external command
+```
 
 Fix:
 
-1. Reinstall Python from: https://www.python.org/downloads/
-2. Select:
+1. Install Python from:
+
+   👉 https://www.python.org/downloads/
+
+2. During installation, enable:
 
 ```txt
 Add Python to PATH
 ```
 
-3. Close and reopen PowerShell.
+3. Restart PowerShell or Command Prompt.
 4. Run:
 
 ```powershell
@@ -734,41 +776,23 @@ python --version
 
 ---
 
-## `ars` is not recognized after installation
+## Problem: `ars` is not recognized
 
-### Windows fix
-
-Manually add this folder to your Windows User PATH:
-
-```txt
-%USERPROFILE%\.arslang\bin
-```
-
-Then close and reopen PowerShell.
-
-Verify:
+Run:
 
 ```powershell
 ars version
 ```
 
-### Linux/macOS fix
+If it does not work, add this folder to your Windows User PATH:
 
-Reload your shell:
-
-```bash
-source ~/.bashrc
+```txt
+%USERPROFILE%\.arslang\bin
 ```
 
-Or:
+Then restart PowerShell and try again:
 
-```bash
-source ~/.zshrc
-```
-
-Then verify:
-
-```bash
+```powershell
 ars version
 ```
 
@@ -790,7 +814,6 @@ Example:
 
 ```bash
 git checkout -b feature/new-feature
-git add .
 git commit -m "Add new feature"
 git push origin feature/new-feature
 ```
