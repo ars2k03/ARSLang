@@ -32,7 +32,6 @@
 - [CLI Commands](#️-cli-commands)
 - [Example Programs](#-example-programs)
 - [Project Structure](#️-project-structure)
-- [Roadmap](#️-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -441,29 +440,6 @@ ARSLang/
 ├── LICENSE
 └── .gitignore
 ```
-
----
-
-# 🗺️ Roadmap
-
-Planned future features:
-
-- [ ] Variables
-- [ ] Numbers
-- [ ] Arithmetic operations
-- [ ] Conditional statements
-- [ ] Loops
-- [ ] Functions
-- [ ] String interpolation
-- [ ] Import system
-- [ ] Standard library
-- [ ] AI integration
-- [ ] Real lexer/parser architecture
-- [ ] AST-based execution
-- [ ] Bytecode VM
-- [ ] Package manager
-- [ ] Dedicated documentation website
-
 ---
 
 # 🤝 Contributing
