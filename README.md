@@ -2,7 +2,7 @@
 
 # 🔷 ARSLang
 
-**A beginner-friendly, custom interpreted programming language — built with Python.**
+**A beginner-friendly custom interpreted programming language — built with Python.**
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/ars2k03/ARSLang)
 [![Language](https://img.shields.io/badge/built%20with-Python-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -13,7 +13,7 @@
 
 <br/>
 
-> ARSLang is a lightweight, expressive programming language with its own syntax, CLI tool, interpreter, native Windows installer, and VS Code ecosystem — all powered by Python.
+> ARSLang is a lightweight, expressive programming language with its own syntax, CLI tool, interpreter, Windows installer, Linux/macOS installer, and VS Code ecosystem — all powered by Python.
 
 </div>
 
@@ -24,14 +24,17 @@
 - [What is ARSLang?](#-what-is-arslang)
 - [Features](#-features)
 - [Requirements](#-requirements)
-- [Windows Support](#️-windows-support)
-- [Installation](#-installation)
+- [Beginner Setup Guide](#-beginner-setup-guide)
+  - [Windows Setup](#-windows-setup)
+  - [Linux Setup](#-linux-setup)
+  - [macOS Setup](#-macos-setup)
 - [VS Code Extension](#-vs-code-extension)
 - [Getting Started](#-getting-started)
 - [Syntax Guide](#-syntax-guide)
 - [CLI Commands](#️-cli-commands)
 - [Example Programs](#-example-programs)
 - [Project Structure](#️-project-structure)
+- [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -48,8 +51,8 @@ ARSLang includes:
 - Custom `.ars` file format
 - Dedicated `ars` command-line tool
 - Built-in interpreter
+- Windows installer
 - Linux/macOS installer
-- Native Windows installer
 - VS Code extension
 - Syntax highlighting
 - Smart autocomplete
@@ -77,7 +80,7 @@ void ars.prime(){
 - ✅ Multi-line comments
 - ✅ Syntax validation
 - ✅ Dedicated CLI tool
-- ✅ Native Windows installer
+- ✅ Windows installer
 - ✅ Linux/macOS installer
 - ✅ VS Code extension
 - ✅ Smart autocomplete
@@ -91,78 +94,224 @@ void ars.prime(){
 
 # 📋 Requirements
 
-- Python `3.6` or higher
-- Linux
-- macOS
-- Windows
+ARSLang needs only these tools:
 
-Check Python version:
+- Python `3.6` or higher
+- Git, optional but recommended
+- VS Code, optional but recommended
+
+Check Python:
 
 ```bash
 python --version
 ```
 
-On some Linux/macOS systems:
+If that does not work, try:
 
 ```bash
 python3 --version
 ```
 
----
-
-# ⚠️ Windows Support
-
-ARSLang includes a native Windows installer.
-
-Windows users can install ARSLang with:
+Check Git:
 
 ```bash
+git --version
+```
+
+If Git is not installed, follow the setup guide below for your operating system.
+
+---
+
+# 🚀 Beginner Setup Guide
+
+This section starts from zero. Follow the guide for your operating system.
+
+---
+
+## 🪟 Windows Setup
+
+### Step 1 — Install Python
+
+1. Go to the official Python website: https://www.python.org/downloads/
+2. Download Python for Windows.
+3. Run the installer.
+4. Important: select this checkbox before installing:
+
+```txt
+Add Python to PATH
+```
+
+5. Finish installation.
+6. Close and reopen Command Prompt or PowerShell.
+
+Verify Python:
+
+```powershell
+python --version
+```
+
+Expected example:
+
+```txt
+Python 3.12.x
+```
+
+If `python` is not recognized, reinstall Python and make sure `Add Python to PATH` is selected.
+
+---
+
+### Step 2 — Install Git
+
+Git is required if you want to use `git clone`.
+
+1. Go to: https://git-scm.com/download/win
+2. Download Git for Windows.
+3. Run the installer.
+4. During installation, choose this option:
+
+```txt
+Git from the command line and also from 3rd-party software
+```
+
+5. Finish installation.
+6. Close and reopen PowerShell.
+
+Verify Git:
+
+```powershell
+git --version
+```
+
+Expected example:
+
+```txt
+git version 2.x.x
+```
+
+---
+
+### Step 3 — Download ARSLang
+
+Recommended method:
+
+```powershell
+git clone https://github.com/ars2k03/ARSLang.git
+cd ARSLang
+```
+
+If Git is not installed, use ZIP download instead:
+
+1. Open the repository: https://github.com/ars2k03/ARSLang
+2. Click **Code**.
+3. Click **Download ZIP**.
+4. Extract the ZIP file.
+5. Open the extracted `ARSLang` folder.
+6. Open PowerShell inside that folder.
+
+---
+
+### Step 4 — Install ARSLang on Windows
+
+Run:
+
+```powershell
 python install_windows.py
 ```
 
-After installation, restart Command Prompt or PowerShell, then run:
+After installation, close and reopen PowerShell.
 
-```bash
+Verify:
+
+```powershell
 ars version
 ```
 
-If `ars` is not recognized, manually add this folder to your Windows User PATH:
+Expected output:
 
 ```txt
-%USERPROFILE%\.arslang\bin
+ARSLang v0.1.0
 ```
 
 ---
 
-# 🚀 Installation
+### Step 5 — Run your first ARSLang file
 
-## Step 1 — Clone the repository
+Create a new file:
+
+```powershell
+ars new hello.ars
+```
+
+Run it:
+
+```powershell
+ars run hello.ars
+```
+
+---
+
+## 🐧 Linux Setup
+
+### Step 1 — Install Python and Git
+
+For Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip git -y
+```
+
+For Fedora:
+
+```bash
+sudo dnf install python3 python3-pip git -y
+```
+
+For Arch Linux:
+
+```bash
+sudo pacman -S python python-pip git
+```
+
+Verify:
+
+```bash
+python3 --version
+git --version
+```
+
+---
+
+### Step 2 — Download ARSLang
 
 ```bash
 git clone https://github.com/ars2k03/ARSLang.git
 cd ARSLang
 ```
 
+If Git is not installed, download the ZIP from GitHub and extract it.
+
 ---
 
-## Step 2 — Run the installer
-
-### Linux/macOS
+### Step 3 — Install ARSLang on Linux
 
 ```bash
 python3 install.py
+```
+
+Reload your terminal configuration:
+
+```bash
 source ~/.bashrc
 ```
 
-### Windows
+If you use Zsh:
 
 ```bash
-python install_windows.py
+source ~/.zshrc
 ```
 
----
-
-## Step 3 — Verify installation
+Verify:
 
 ```bash
 ars version
@@ -172,6 +321,100 @@ Expected output:
 
 ```txt
 ARSLang v0.1.0
+```
+
+---
+
+### Step 4 — Run your first ARSLang file
+
+```bash
+ars new hello.ars
+ars run hello.ars
+```
+
+---
+
+## 🍎 macOS Setup
+
+### Step 1 — Install Homebrew, if needed
+
+Check if Homebrew exists:
+
+```bash
+brew --version
+```
+
+If it is not installed, install it from:
+
+```txt
+https://brew.sh
+```
+
+---
+
+### Step 2 — Install Python and Git
+
+```bash
+brew install python git
+```
+
+Verify:
+
+```bash
+python3 --version
+git --version
+```
+
+---
+
+### Step 3 — Download ARSLang
+
+```bash
+git clone https://github.com/ars2k03/ARSLang.git
+cd ARSLang
+```
+
+If Git is not installed, download the ZIP from GitHub and extract it.
+
+---
+
+### Step 4 — Install ARSLang on macOS
+
+```bash
+python3 install.py
+```
+
+Reload your terminal configuration:
+
+```bash
+source ~/.zshrc
+```
+
+If you use Bash:
+
+```bash
+source ~/.bashrc
+```
+
+Verify:
+
+```bash
+ars version
+```
+
+Expected output:
+
+```txt
+ARSLang v0.1.0
+```
+
+---
+
+### Step 5 — Run your first ARSLang file
+
+```bash
+ars new hello.ars
+ars run hello.ars
 ```
 
 ---
@@ -194,7 +437,7 @@ The extension includes:
 - Error diagnostics
 - Format Document support
 
-You can also search directly inside VS Code:
+You can also search directly inside VS Code Extensions:
 
 ```txt
 ARSLang
@@ -440,6 +683,95 @@ ARSLang/
 ├── LICENSE
 └── .gitignore
 ```
+
+---
+
+# 🛠 Troubleshooting
+
+## `git` is not recognized on Windows
+
+Problem:
+
+```txt
+git is not recognized as a name of a cmdlet, function, script file, or executable program
+```
+
+Fix:
+
+1. Install Git from: https://git-scm.com/download/win
+2. During setup, choose:
+
+```txt
+Git from the command line and also from 3rd-party software
+```
+
+3. Close and reopen PowerShell.
+4. Run:
+
+```powershell
+git --version
+```
+
+---
+
+## `python` is not recognized on Windows
+
+Fix:
+
+1. Reinstall Python from: https://www.python.org/downloads/
+2. Select:
+
+```txt
+Add Python to PATH
+```
+
+3. Close and reopen PowerShell.
+4. Run:
+
+```powershell
+python --version
+```
+
+---
+
+## `ars` is not recognized after installation
+
+### Windows fix
+
+Manually add this folder to your Windows User PATH:
+
+```txt
+%USERPROFILE%\.arslang\bin
+```
+
+Then close and reopen PowerShell.
+
+Verify:
+
+```powershell
+ars version
+```
+
+### Linux/macOS fix
+
+Reload your shell:
+
+```bash
+source ~/.bashrc
+```
+
+Or:
+
+```bash
+source ~/.zshrc
+```
+
+Then verify:
+
+```bash
+ars version
+```
+
 ---
 
 # 🤝 Contributing
@@ -458,6 +790,7 @@ Example:
 
 ```bash
 git checkout -b feature/new-feature
+git add .
 git commit -m "Add new feature"
 git push origin feature/new-feature
 ```
