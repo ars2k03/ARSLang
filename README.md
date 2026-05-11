@@ -12,7 +12,7 @@
 
 <br/>
 
-> ARSLang is a lightweight, expressive programming language with its own syntax, CLI tool, and interpreter — all powered by Python. Designed to be readable, simple, and fun to extend.
+> ARSLang is a lightweight, expressive programming language with its own syntax, CLI tool, interpreter, and VS Code ecosystem — all powered by Python.
 
 </div>
 
@@ -23,27 +23,36 @@
 - [What is ARSLang?](#-what-is-arslang)
 - [Features](#-features)
 - [Requirements](#-requirements)
+- [Windows Support](#️-windows-support)
 - [Installation](#-installation)
+- [VS Code Extension](#-vs-code-extension)
 - [Getting Started](#-getting-started)
 - [Syntax Guide](#-syntax-guide)
-  - [Program Structure](#program-structure)
-  - [Output](#output)
-  - [Escape Sequences](#escape-sequences)
-  - [Comments](#comments)
-- [CLI Commands](#-cli-commands)
+- [CLI Commands](#️-cli-commands)
 - [Example Programs](#-example-programs)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap)
+- [Project Structure](#️-project-structure)
+- [Roadmap](#️-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
 
 ---
 
-## 🔷 What is ARSLang?
+# 🔷 What is ARSLang?
 
-**ARSLang** is a custom interpreted programming language written from scratch in Python. It comes with its own `.ars` file format, a dedicated command-line interface (`ars`), and a clean, beginner-friendly syntax.
+ARSLang is a custom interpreted programming language written from scratch in Python.
 
-Whether you're curious about how programming languages work under the hood, or you just want to experiment with a minimal language — ARSLang is a great place to start.
+It includes:
+
+- Custom `.ars` file format
+- Dedicated `ars` CLI
+- Built-in interpreter
+- VS Code extension
+- Syntax highlighting
+- Diagnostics
+- Formatter
+- Autocomplete
+
+Example:
 
 ```ars
 void ars.prime(){
@@ -53,110 +62,133 @@ void ars.prime(){
 
 ---
 
-## ✨ Features
+# ✨ Features
 
 - ✅ Custom `.ars` file format
-- ✅ Clean and readable syntax
-- ✅ String output via `ars.out()`
-- ✅ Escape sequence support (`\n`, `\"`, `\'`, `\\`)
-- ✅ Single-line comments with `##`
-- ✅ Multi-line comments with `** ... **`
-- ✅ Syntax validation before execution
-- ✅ Dedicated CLI tool (`ars`)
-- ✅ Beginner-friendly error messages
-- ✅ Lightweight — zero external dependencies
+- ✅ Beginner-friendly syntax
+- ✅ `ars.out()` output system
+- ✅ Escape sequence support
+- ✅ Comments support
+- ✅ Syntax validation
+- ✅ Dedicated CLI tool
+- ✅ VS Code extension
+- ✅ Smart autocomplete
+- ✅ Error diagnostics
+- ✅ Auto formatting
+- ✅ Run button inside VS Code
+- ✅ Native Windows installer
+- ✅ Lightweight architecture
 
 ---
 
-## 📋 Requirements
+# 📋 Requirements
 
 - Python `3.6` or higher
-- Linux / macOS / WSL (Windows Subsystem for Linux)
+- Linux
+- macOS
+- Windows
 
-Check your Python version:
+Check Python version:
 
 ```bash
-python3 --version
+python --version
 ```
 
 ---
 
+# ⚠️ Windows Support
 
-## ⚠️ Windows Support
+ARSLang now includes a native Windows installer.
 
-Native Windows installer is currently under development.
+Windows users can install ARSLang with:
 
-For now, Windows users should use:
-- WSL (Windows Subsystem for Linux)
-- Ubuntu on WSL
+```bash
+python install_windows.py
+```
 
-Native `.exe` installer and PowerShell support are planned.
+After installation, restart Command Prompt or PowerShell, then run:
 
+```bash
+ars version
+```
 
-## 🚀 Installation
+If `ars` is not recognized, manually add this folder to your Windows User PATH:
 
-### Step 1 — Clone the repository
+```txt
+%USERPROFILE%\.arslang\bin
+```
+
+---
+
+# 🚀 Installation
+
+## Step 1 — Clone the repository
 
 ```bash
 git clone https://github.com/ars2k03/ARSLang.git
 cd ARSLang
 ```
 
-### Step 2 — Run the installer
+---
+
+## Step 2 — Run the installer
+
+### Linux/macOS
 
 ```bash
 python3 install.py
-```
-
-### Step 3 — Reload your shell
-
-```bash
 source ~/.bashrc
 ```
 
-### Step 4 — Verify installation
+### Windows
+
+```bash
+python install_windows.py
+```
+
+---
+
+## Step 3 — Verify installation
 
 ```bash
 ars version
 ```
 
-Expected output:
+Expected:
 
-```
+```txt
 ARSLang v0.1.0
 ```
 
-> **Note:** The installer copies the `arslang` package to `~/.arslang/` and creates a launcher at `~/.local/bin/ars`. Your `PATH` is updated automatically in `~/.bashrc`.
-
 ---
 
-## 🧩 VS Code Extension
+# 🧩 VS Code Extension
 
-ARSLang also has a VS Code extension with:
+ARSLang has an official VS Code extension with:
 
 - Syntax highlighting
 - Smart autocomplete
 - Run ARSLang button
-- Format Document support
 - Error diagnostics
+- Auto formatting
 
-Install from VS Code Marketplace by searching:
+Install from VS Code Marketplace:
 
 ```txt
-ARSLang
+Search: ARSLang
 ```
 
 ---
 
-## 🏁 Getting Started
+# 🏁 Getting Started
 
-Create your first ARSLang program:
+Create your first program:
 
 ```bash
 ars new hello.ars
 ```
 
-This generates a starter file:
+Generated file:
 
 ```ars
 void ars.prime(){
@@ -172,138 +204,100 @@ ars run hello.ars
 
 Output:
 
-```
+```txt
 Hello ARSLang
 ```
 
 ---
 
-## 📖 Syntax Guide
+# 📖 Syntax Guide
 
-### Program Structure
+## Program Structure
 
-Every ARSLang program must define a `void ars.prime()` block. This is the entry point — similar to `main()` in other languages.
-
-```ars
-void ars.prime(){
-    ## Your code goes here
-}
-```
-
-- The program must have exactly one `ars.prime()` block.
-- All executable statements must be inside this block.
-
----
-
-### Output
-
-Use `ars.out()` to print text to the terminal.
+Every ARSLang program must contain:
 
 ```ars
 void ars.prime(){
-    ars.out("Welcome to ARSLang!")
-    ars.out("This is line two.")
+    
 }
 ```
 
-Output:
-
-```
-Welcome to ARSLang!
-This is line two.
-```
+This is the entry point of the program.
 
 ---
 
-### Escape Sequences
+## Output
 
-ARSLang supports the following escape sequences inside strings:
+Use:
 
-| Sequence | Meaning         | Example                         | Output           |
-|----------|-----------------|----------------------------------|------------------|
-| `\n`     | New line        | `ars.out("Line 1\nLine 2")`     | Two lines        |
-| `\"`     | Double quote    | `ars.out("She said \"Hi\"")`    | She said "Hi"    |
-| `\'`     | Single quote    | `ars.out("It\'s easy")`         | It's easy        |
-| `\\`     | Backslash       | `ars.out("Path: C:\\\\ars")`    | Path: C:\\ars    |
+```ars
+ars.out("Hello")
+```
 
 Example:
 
 ```ars
 void ars.prime(){
-    ars.out("Hello\nWorld")
-    ars.out("He said \"ARSLang is cool\"")
+    ars.out("Welcome to ARSLang")
 }
-```
-
-Output:
-
-```
-Hello
-World
-He said "ARSLang is cool"
 ```
 
 ---
 
-### Comments
+## Escape Sequences
 
-**Single-line comment** — use `##`:
+| Sequence | Meaning |
+|---|---|
+| `\n` | New line |
+| `\"` | Double quote |
+| `\'` | Single quote |
+| `\\` | Backslash |
+
+Example:
 
 ```ars
 void ars.prime(){
-    ## This is a single-line comment
-    ars.out("Comments are ignored")
+    ars.out("Line 1\nLine 2")
+    ars.out("I'm \"Amit\"")
 }
 ```
 
-**Multi-line comment** — wrap with `**`:
+---
+
+## Comments
+
+### Single-line comment
 
 ```ars
-void ars.prime(){
-    **
-    This is a
-    multi-line comment
-    **
-    ars.out("Still runs fine")
-}
+## This is a comment
+```
+
+### Multi-line comment
+
+```ars
+**
+This is a
+multi-line comment
+**
 ```
 
 ---
 
-## 🖥️ CLI Commands
+# 🖥️ CLI Commands
 
-| Command                   | Description                                      |
-|---------------------------|--------------------------------------------------|
-| `ars new filename.ars`    | Create a new `.ars` file with starter code       |
-| `ars run filename.ars`    | Run an ARSLang program                           |
-| `ars check filename.ars`  | Validate syntax without running                  |
-| `ars version`             | Show the installed ARSLang version               |
-| `ars help`                | Show usage instructions and syntax reference     |
-
-### Examples
-
-```bash
-# Create a new program
-ars new myprogram.ars
-
-# Check for syntax errors
-ars check myprogram.ars
-
-# Run the program
-ars run myprogram.ars
-
-# Display version
-ars version
-
-# Show help
-ars help
-```
+| Command | Description |
+|---|---|
+| `ars new file.ars` | Create a new ARSLang file |
+| `ars run file.ars` | Run program |
+| `ars check file.ars` | Validate syntax |
+| `ars version` | Show version |
+| `ars help` | Show help |
 
 ---
 
-## 💡 Example Programs
+# 💡 Example Programs
 
-### Hello World
+## Hello World
 
 ```ars
 void ars.prime(){
@@ -311,7 +305,9 @@ void ars.prime(){
 }
 ```
 
-### Multi-line Output
+---
+
+## Multi-line Output
 
 ```ars
 void ars.prime(){
@@ -319,97 +315,85 @@ void ars.prime(){
 }
 ```
 
-### Using Comments
+---
+
+## Using Comments
 
 ```ars
 void ars.prime(){
-    ## Print a greeting
+
+    ## Greeting
     ars.out("Good morning!")
 
     **
-    This section is commented out.
-    ars.out("This won't run")
+    Hidden code
+    ars.out("Not executed")
     **
 
-    ars.out("Have a great day!")
-}
-```
-
-### Quotes Inside Strings
-
-```ars
-void ars.prime(){
-    ars.out("She said \"Hello!\"")
-    ars.out("It\'s a beautiful day")
+    ars.out("Program finished")
 }
 ```
 
 ---
 
-## 🗂️ Project Structure
+# 🗂️ Project Structure
 
-```
+```txt
 ARSLang/
 ├── arslang/
-│   ├── __init__.py       # Package initializer
-│   └── cli.py            # Core interpreter and CLI logic
+│   ├── __init__.py
+│   └── cli.py
+├── windows/
+│   └── ars.bat
 ├── examples/
-│   └── hello.ars         # Sample ARSLang program
-├── install.py            # Installer script
-├── README.md             # Project documentation
-├── .gitignore            # Git ignored files
-└── LICENSE               # License file
+│   └── hello.ars
+├── install.py
+├── install_windows.py
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
-## 🗺️ Roadmap
+# 🗺️ Roadmap
 
-ARSLang is actively evolving. Here's what's planned:
+Planned future features:
 
-- [ ] **Variables** — declare and use variables (`let x = 10`)
-- [ ] **Data Types** — integers, floats, booleans
-- [ ] **Arithmetic Operations** — `+`, `-`, `*`, `/`
-- [ ] **Conditional Statements** — `if`, `else`
-- [ ] **Loops** — `for`, `while`
-- [ ] **Functions** — user-defined functions
-- [ ] **String Interpolation** — embed variables in strings
-- [ ] **Import System** — split code across multiple `.ars` files
-- [ ] **Standard Library** — built-in math, string, and I/O utilities
-- [ ] **Windows Native Support** — without WSL
-- [ ] **VS Code Extension** — syntax highlighting for `.ars` files
-- [ ] **Error Line Reporting** — precise line numbers in error messages
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome and appreciated! Here's how you can help:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/your-feature-name`
-3. **Commit** your changes: `git commit -m "Add: your feature description"`
-4. **Push** to the branch: `git push origin feature/your-feature-name`
-5. **Open** a Pull Request
-
-### Guidelines
-
-- Keep code clean and well-commented
-- Follow the existing code style
-- Add examples for any new syntax features
-- Update the README if you add new commands or syntax
-
-Found a bug? [Open an issue](https://github.com/ars2k03/ARSLang/issues) with a clear description and steps to reproduce.
+- [ ] Variables
+- [ ] Numbers
+- [ ] Arithmetic
+- [ ] Conditions
+- [ ] Loops
+- [ ] Functions
+- [ ] Import system
+- [ ] Standard library
+- [ ] AI integration
+- [ ] Real parser & AST
+- [ ] Bytecode VM
+- [ ] Package manager
 
 ---
 
-## 📄 License
+# 🤝 Contributing
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Contributions are welcome.
 
-```
+Steps:
+
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push branch
+5. Open Pull Request
+
+---
+
+# 📄 License
+
 MIT License
 
+```txt
 Copyright (c) 2026 A R S
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -421,8 +405,8 @@ in the Software without restriction.
 
 <div align="center">
 
-Made with ❤️ by A R S. Copyright (c) 2026 A R S.
+Made with ❤️ by A R S
 
-⭐ **Star this repo** if you find ARSLang interesting!
+⭐ Star the repository if you find ARSLang interesting.
 
 </div>
